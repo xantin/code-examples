@@ -6,6 +6,7 @@ Before running you need to enable Drive API integration via: Resources -> Advanc
 
 another option to write API calling: https://developers.google.com/drive/v2/reference/files/delete
 docs: https://developers.google.com/apps-script/reference/drive/file
+https://script.google.com
 */
 function main(){
   function findFilesByRegex(regEx, fileCallback) {
