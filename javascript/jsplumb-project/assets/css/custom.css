@@ -1,0 +1,947 @@
+/* Custom styling for the Bootstrap website. 
+These styles do not ship with Bootstrap. 
+Some are overrides of existing Bootstrap styles, while others are new styles not existing in Bootstrap.
+In the starting CSS document, styles are based on custom classes not in Bootstrap.
+*/
+
+/* Extra small devices (phones, less than 768px) */
+@media(min-width:576px){
+    body {
+            background-color: darkgray; 
+            font-size: 1.4em;  
+        }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media(min-width:768px){
+    body {
+            background-color: crimson; 
+            font-size: 1.4em;  
+        }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px){
+
+               body {
+                  background-color: darkblue;
+                }
+/*                 #diagramContainer {
+                  height:38em;
+                  margin-top: 7.7em;
+                }
+                .vmX {
+                  top: 47em;
+                  left: 25.6em;
+                  width: 9em;
+                  height: 2em;
+                  line-height: 2.5em;
+                  font-size: .875em;
+                }
+                .databaseX {
+                  top: 15.5em;
+                  width: 12em;
+                  line-height: 1.9em;
+                  height: 1.8em; 
+                  background-size: 1.4em 1.4em;
+                  background-position: 7em .1em;
+                  padding-left: 8.7em;
+                  font-size: .875em;  
+                }
+                .list1Items {
+                  width: 7.25em;
+                  height: 2.1em;
+                  border-radius: 8px;    
+                  line-height: 2.3em;
+                  background-position: 7px 0px;
+                  font-size: .875em;
+                }
+                #grid-item-height-right-top { 
+                  width: 82%;
+                }
+                #grid-item-height-right-bottom {
+                   width: 82%;
+                 }
+                #datacenterlabel {
+                  width: 59.6em;
+                  left: 18em;
+                  padding: .5em 0em .5em;
+                  text-align: center;
+                  top: -7.09em;
+                }
+                #frontendlabel {
+                  text-align: center;
+                  width: 31em;
+                  left: 18em;
+                  padding: .85em 1em .85em;
+                }
+                #backendlabel {
+                  width: 24.1em;
+                  left: 53.5em;
+                  padding: .9em 0em .9em;
+                }
+                #hardwareLoadBalancerLabel { 
+                  width: 10em;
+                  left: 18em;
+                  padding: .3em 0em .3em;
+                }
+                #vmWareLabel { 
+                  width: 10em;
+                  left: 28.5em;
+                  padding: .85em 0em .85em;
+                  text-align: center;
+                }
+                #applicationZone { 
+                  width: 5em;
+                  height: 39.25em;
+                  left: 39em;
+                }
+                #alsterdorf-firewall { 
+                  top: 7.7em;
+                  left: 50em;
+                }
+                #norderstedt-firewall { 
+                  top: 26.7em;
+                  left: 50em;
+                }
+                #ex { 
+                  height: 35em;
+                  line-height:35em;
+                }
+                #prod {
+                  height: 10.5em;
+                  line-height: 10.5em;
+                  top: 1.4em;
+                }
+                #test {
+                  height: 10.5em;
+                  top: 13.5em;
+                  line-height: 10.5em;
+                }
+                #dev { 
+                  height: 10.5em;
+                  line-height: 10em;
+                  top: 25.9em;
+                }
+                #node1 { 
+                  width: 5em;
+                  height: 1.7em;
+                  line-height: 1.8em;
+                  font-size: .875em;
+                  left:21em;
+                }
+                #node2 { 
+                  width: 5em;
+                  height: 1.7em;
+                  line-height: 1.8em;
+                  font-size: .875em;
+                  left:21em;
+                  top: 3.8em;
+                }
+                #LB1 {
+                  position: absolute;
+                  top:40em;
+                  left:40em;
+                }
+                #LB1Button {
+                  font-size: 1em;
+                  line-height: 1.4em;
+                  top: 6em;
+                }
+                #LB2Button {
+                  top: 7.8em;
+                  font-size: 1em;
+                  line-height: 1.4em;
+                }
+                .loadbalanceritem1 {
+                  position: relative;
+                  top: -34.3em;
+                  left: -21.7em;
+                }
+                .loadbalancerWidth {
+                  width:2em;
+                }
+                .loadbalanceritem2 {
+                  position: relative;
+                  top: -18.2em;
+                  left: -19.4em;
+                }
+                #hardwareLoadBalancer { 
+                  height: 25em;
+                }
+                #legend {
+                  top: 37.5em;
+                  left: 0em;
+                }
+                #legend_non_db {
+                  left: 0em;
+                  top: 48em;
+                }
+                #legend_exist_db {
+                  left: 8.79em;
+                  top: 48em;
+                }
+                #legend_exist_app {
+                  left: 17.5em;
+                  top: 48em;
+                }
+                .vm {
+                  width: 8%;
+                  background-position: 7px 0px;
+                  font-size: .875em;
+                  line-height: 1.9em;
+                  height: 1.8em;
+                }
+                .database {
+                  width: 12em;
+                  background-position: 6.9em .15em;
+                  background-size: 1.4em 1.4em;
+                  font-size: .875em;
+                  line-height: 1.9em;
+                  height: 1.8em;  
+                  padding-left: 8.6em;
+                }
+                #end_dehamsl962 {
+                  left: 35em;
+                  top: 2.5em;
+                }
+                #end_dehamsl1014 {
+                  left: 35em;
+                  top: 4.5em;
+                }
+                #end_dehamsl963 {
+                  top: 6.9em;
+                  left: 35em;
+                }
+                #end_dehamsl1015 {
+                  top: 8.9em;
+                  left: 35em;
+                }
+                #alsterdorf-apzLabel {
+                  top: 0em;
+                  left: 27.75em;
+                }
+                #db2 {
+                  top: 8.9em;
+                } 
+                #hardwareLoadBalancer {     
+                  left: 15.5em;
+                }
+                #applicationStackLabel { 
+                  top: 43.75em;
+                  padding: .74em .74em;
+                }*/
+                    
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px){
+
+          body {
+            background-color: cyan; 
+            font-size: 1.4em;  
+          }
+          #diagramContainer {
+            background-image: url(../images/grid.png);
+            background-repeat:repeat;
+            height:55em;
+            position: relative;
+            margin-top: 10em;
+            width: 100%;
+          }
+          /*header styling*/
+          header {
+            background:#56b7e9;
+          }
+          .logo {
+            text-align: center;
+          }
+
+          /*Legend*/
+          .vmX {
+            position: absolute;
+            top: 58.30em;
+            left: 22.4em;
+            width: 12em;
+            height: 25px;
+            border-radius: 10px;
+            background-color: darkgreen;
+            color: white;
+            padding-left: 34px;
+            line-height: 26px;
+            background-size: 22px 22px;
+            background-repeat: no-repeat;
+            background-position: 7px 1px;
+          }
+          .databaseX {
+            position: absolute;
+            top: 18em;
+            left: 65em;
+            width: 210px;
+            height: 25px;
+            border-radius: 10px;
+            background-color: #9932CC;
+            color: white;
+            padding-left: 34px;
+            line-height: 26px;
+            background-size: 22px 22px;
+            background-repeat: no-repeat;
+            background-position: 9.6em .1em;
+            background-image: url(../images/database.png);
+            padding-left: 11.5em;
+          }
+          .list1Items {
+            position: absolute;
+            top: 0em;
+            left: 0em;
+            width:8em;
+            height: 25px;
+            border-radius: 10px;
+            background-color: darkgreen;
+            color: white;
+            padding-left: 34px;
+            line-height: 26px;
+            background-size: 22px 22px;
+            background-repeat: no-repeat;
+            background-position: 7px 1px;
+            background-image: url(../images/vmware.png);
+          }
+
+          .grid-item-height {z-index: 0; position: relative;}
+          #grid-item-height-right-top { 
+            background-color: #99CFD6;
+            width: 86.6%;
+            padding: 25px;
+            margin-left: 18.1em; 
+            height: 50%;
+            opacity:.5;
+          }
+          #grid-item-height-right-bottom {
+            background-color: #ff99cc;
+            width: 86.6%;
+            padding: 25px;
+            margin-left: 18.1em; 
+            height: 50%;
+            opacity:.5;
+          }
+          #hardwareLoadBalancerLabel { 
+            width: auto;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            padding-left: 30px;
+            padding-right: 30px;
+            line-height: 1.1em;
+            position: absolute;
+            top: -1.5em;
+            left: 20em;
+            border: 1px solid black;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            text-align: center;
+          }
+          #ex { 
+            width: auto;
+            height: 52em;
+            background-color: #fff;
+            color: black;
+            padding-left: 30px;
+            padding-right: 30px;
+            line-height: 50.1em;
+            position: absolute;
+            top: 1.5em;
+            left: 2em;
+            border: 1px solid black;
+            text-align: center;
+          }
+          #prod { 
+            width: auto;
+            height: 16em;
+            background-color: #fff;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 15em;
+            position: absolute;
+            top: 1.5em;
+            left: 10em;
+            border: 1px solid green;
+            text-align: center;
+          }
+
+          #test { 
+            width: auto;
+            height: 16em;
+            background-color: #fff;
+            color: black;
+            padding-left: 22px;
+            padding-right: 22px;
+            line-height: 15em;
+            position: absolute;
+            top: 19.4em;
+            left: 10em;
+            border: 1px solid blue;
+            text-align: center;
+          }
+          #dev { 
+            width: auto;
+            height: 16em;
+            background-color: #fff;
+            color: black;
+            padding-left: 22px;
+            padding-right: 22px;
+            line-height: 15em;
+            position: absolute;
+            top: 37.4em;
+            left: 10em;
+            border: 1px solid yellow;
+            text-align: center;
+          }
+          #vmWareLabel { 
+            width: auto;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            line-height: 1em;
+            position: absolute;
+            top: -1.5em;
+            left: 32em;
+            border: 1px solid black;
+            padding: .94em 4em .94em;
+          }
+          #frontendlabel {
+            width: 36em;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            line-height: 1em;
+            position: absolute;
+            top: -5em;
+            left: 20em;
+            border: 1px solid black;
+            padding: 1em 15em 1em;
+          }
+          #backendlabel {
+            width: 37.1em;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            line-height: 1em;
+            position: absolute;
+            top: -5em;
+            left: 61em;
+            border: 1px solid black;
+            padding: 1em 0em 1em;
+            text-align: center;
+          }
+          #datacenterlabel {
+            width: auto;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            line-height: 1em;
+            position: absolute;
+            top: -7.1em;
+            left: 20em;
+            border: 1px solid black;
+            padding:.5em 35em .5em;
+          }
+          #applicationZone { 
+            width: 70px;
+            height: 56em;
+            border-radius: 10px;
+            float: left;
+            margin-top: 10px;
+            background-color: #999;
+            color: white;
+            padding-left: 0px;
+            padding-top: 10px;
+            line-height: 20px;
+            position: absolute;
+            top: -2.3em;
+            left: 44.3em;
+            text-align: center;
+          }
+          #hardwareLoadBalancer {     
+            width: 70px;
+            height: 36.8em;
+            border-radius: 10px;
+            float: left;
+            padding-top: 10px;
+            background-color: #999;
+            color: white;
+            padding-left: 20px;
+            line-height: 26px;
+            position: absolute;
+            top: 1.3em;
+            left: 17.5em;
+            font-size: 20px;
+          }
+          #node1 { 
+            width: 7em;
+            height: 1.8em;
+            border-radius: 10px;
+            float: left;
+            margin-top: 10px;
+            background-color: #666;
+            color: white;
+            padding-left: 8px;
+            line-height: 1.8em;
+            position: absolute;
+            left: 20em;
+            top: 2em;
+          }
+          #node2 {     
+            width: 7em;
+            height: 1.8em;
+            border-radius: 10px;
+            float: left;
+            margin-top: 10px;
+            background-color: #666;
+            color: white;
+            padding-left: 8px;
+            line-height: 1.8em;
+            position: absolute;
+            left: 20em;
+            top: 4em;
+          }
+        /*#alsterdorf {     
+          width: 115px;
+          height: 35px;
+          margin-top: 60px;
+          color: black;
+          line-height: 20px;
+          position: absolute;
+          top: 180px;
+          left: 274px;
+          border: 1px solid black;
+          padding-top: 5px;
+          text-align: center;
+          font-weight: bold;
+          }*/
+        /*#norderstedt {     
+          width: 115px;
+          height: 35px;
+          z-index: 100;
+          margin-top: 60px;
+          color: black;
+          line-height: 20px;
+          position: absolute;
+          top: 485px;
+          left: 274px;
+          border: 1px solid black;
+          padding-top: 5px;
+          text-align: center;
+          font-weight: bold;
+          }*/
+          #norderstedt-firewall-line {    
+            border-style: dashed;
+            position: absolute;
+            width: 86%;
+            top: 25%;
+            left: 260px;
+          }
+          #alsterdorf-firewall-line {
+            border-style: dashed;
+            position: absolute;
+            width: 86%;
+            top: 75%;
+            left: 260px;
+          }
+          #alsterdorf-apzLabel {
+            width: 2.6em;
+            height: 1.6em;
+            margin-top: 10px;
+            background-color: #000;
+            color: white;
+            line-height: 1.1em;
+            position: absolute;
+            top: 0em;
+            left: 31.1em;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 1.6em;
+            padding: 6px;
+            font-weight: normal;
+          }
+          .vm {
+            position: absolute;
+            width: 10.5em;
+            height: 25px;
+            border-radius: 10px;
+            background-color: darkgreen;
+            color: white;
+            padding-left: 34px;
+            line-height: 26px;
+            background-image: url(../images/vmware.png);
+            background-size: 22px 22px;
+            background-repeat: no-repeat;
+            background-position: 7px 1px;
+          }
+          #alsterdorf-firewall { 
+            position: absolute;
+            top: 12em;
+            left: 57em;
+          }
+          #norderstedt-firewall { 
+            position: absolute;
+            top: 39.5em;
+            left: 57em;
+          }
+          #end_dehamsl962 {
+            left: 33.3em;
+            top: 2.5em;
+          }
+          #end_dehamsl1014 {
+            left: 33.3em;
+            top: 4.5em;
+          }
+          #end_dehamsl963 {
+            top: 9em;
+            left: 33.3em;
+          }
+          #end_dehamsl1015 {
+            top: 11.1em;
+            left: 33.3em;
+          }
+          #db1 {
+            left: 65em;
+            top: 4em;
+          } 
+          #db2 {
+            left: 65em;
+            top: 11em;
+          } 
+          #LB1 {
+            position: absolute;
+            top:300px;
+            left:530px;
+          }
+          #LB1Button {
+            position: absolute;
+            top: 6.5em;
+            left: 20em;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+            padding: 0px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            line-height: 26px;
+          }
+          #LB2 {
+            position: absolute;
+            top:360px;
+            left:515px;
+          }
+          #LB2Button {
+            position: absolute;
+            top: 9.69em;
+            left: 19em;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+            padding: 0px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            line-height: 26px;
+          }
+          .loadbalanceritem1 {
+            position: relative;
+            top: -14.85em;
+            left: -18.3em;
+          }
+          .loadbalanceritem2 {
+            position: relative;
+            top: -15.54em;
+            left: -18.3em;
+          }
+          #legend {
+            width: auto;
+            height: auto;
+            margin-top: 10px;
+            background-color: #fff;
+            color: black;
+            padding: 5px 130px 5px 130px;
+            line-height: 20px;
+            position: absolute;
+            top: 54.75em;
+            left: 0em;
+            border: 1px solid black;
+            text-align: center;
+          }
+          #legend_non_db {
+            left: 0em;
+            top: 68em;
+            background-color: #E9967A;
+          }
+          #legend_exist_db {
+            left: 8.79em;
+            top: 68em;
+            background-color: #9932CC;
+          }
+          #legend_exist_app {
+            left: 17.5em;
+            top: 68em;
+            background-color: #0000FF;
+          }
+          .database {
+            position: absolute;
+            width: 210px;
+            height: 25px;
+            border-radius: 10px;
+            background-color: #9932CC;
+            color: white;
+            padding-left: 34px;
+            line-height: 26px;
+            background-image: url(../images/database.png);
+            background-size: 22px 22px;
+            background-repeat: no-repeat;
+            background-position: 7px 1px;
+          }
+          #applicationStackLabel { 
+            position: absolute;
+            top: 63.5em;
+            right: 0%;
+            width: 18em;
+            height: auto;
+            background-color: #fff;
+            color: black;
+            line-height: 1em;
+            border: 1px solid black;
+            padding: .94em .94em;
+            text-align: left;
+            font-size: .875em
+          }
+          .legend_box {
+            position:absolute; 
+            width: 100px; 
+            height: auto; 
+            border-radius:10px; 
+            color:white; 
+            padding:5px 5px 5px 5px; 
+            line-height: 12px; 
+            text-align: center; 
+            font-size: 12px;
+          }
+          #caption1 { 
+            width: 380px; 
+            height: 50px; 
+            z-index: 100; 
+            border-radius:10px; 
+            float:left; 
+            margin-top:2px; 
+            background-color:#ffffff; 
+            border:1px solid black;
+            color:black; 
+            padding-left:10px; 
+            padding-top:6px; 
+            line-height: 20px; 
+            position: absolute; 
+            top:50px; 
+            left:100px; 
+            display:none;
+          }
+
+          /*Below are the styles not looked at since the responsive process was started*/
+
+          #end_denots12 {
+            left: 25px;
+            top: 430px;
+          }
+          #end_denots13 {
+            left: 25px;
+            top: 460px;
+          }
+          #end_denots14 {
+            left: 25px;
+            top: 490px;
+          }
+          #end_dehams1733 {
+            left: 25px;
+            top: 530px;
+          }
+          #end_dehams1734 {
+            left: 25px;
+            top: 560px;
+          }
+          #end_dehams1735 {
+            left: 25px;
+            top: 590px;
+          }
+          #end_denots15 {
+            left: 25px;
+            top: 630px;
+          }
+          #end_denots16 {
+            left: 25px;
+            top: 660px;
+          }
+          #end_denots17 {
+            left: 25px;
+            top: 690px;
+          }
+          #end_dehams1728 {
+            left: 25px;
+            top: 730px;
+          }
+          #end_dehamor {
+            left: 25px;
+            top: 770px;
+          }
+          #end_denotor {
+            left: 25px;
+            top: 800px;
+          }
+          #dragbutton {
+            background-color: #ddffdd;
+          }
+          /*General Fixed Elements*/
+          .load-balancer-label {    
+            width: auto;
+            height: 30px;
+            margin-top: 10px;
+            background-color: #fff;
+            color: black;
+            padding-left: 8px;
+            padding-right: 8px;
+            line-height: 26px;
+            position: absolute;
+            top: 0px;
+            left: 45px;
+            border: 1px solid black;
+          }
+          #alsterdorf-dmzLabel { 
+            width: auto; 
+            height: auto; 
+            margin-top:10px; 
+            background-color:#000; 
+            color:white; 
+            line-height: 34px; 
+            position: absolute; 
+            top: 184px;
+            left: 1190px; 
+            border:1px solid black; 
+            text-align: center; 
+            font-size: 3.5em; 
+            padding:6px;
+          }
+          #alsterdorf-internet { 
+            position: absolute; 
+            top: 70px; 
+            left: 806px;
+          }
+          #alsterdorf-chevron { 
+            position: absolute; 
+            top: 110px; 
+            left: 822px; 
+            opacity: 0;
+          }
+          #norderstedt-chevron { 
+            position: absolute; 
+            top: 770px; 
+            left: 821px; 
+            opacity: 0;
+          }
+          #norderstedt-internet { 
+            position: absolute; 
+            top: 783px; 
+            left: 806px;
+          }
+          #norderstedt-apzLabel { 
+            width: 2.5em; 
+            height: auto; 
+            z-index: 10; 
+            margin-top:10px; 
+            background-color:#000; 
+            color:white; 
+            line-height: 34px; 
+            position: absolute; 
+            top:494px; 
+            left:1190px; 
+            border:1px solid black; 
+            text-align: center; 
+            font-size: 3.5em; 
+            padding:6px;
+          }
+          #norderstedt-dmzLabel { 
+            width: auto; 
+            height: auto; 
+            z-index: 10; 
+            margin-top:10px; 
+            background-color:#000; 
+            color:white; 
+            line-height: 34px; 
+            position: absolute; 
+            top:640px; 
+            left:1190px; 
+            border:1px solid black; 
+            text-align: center; 
+            font-size: 3.5em; 
+            padding:6px;
+          }
+          .apz {
+            width: auto;
+            height: auto;
+            font-size: 20px;
+            color: white; 
+            margin-left:-6px; 
+            margin-top: 38px;
+          }
+
+          /*Links*/
+          a.toggle1:hover + div#caption1 {
+            display: block; 
+            z-index: 1000;
+          }
+          a:link, a:visited { 
+            color: inherit;
+            text-decoration: underline;
+            cursor: auto;
+          }
+          a:link:active, a:visited:active { 
+            color: inherit;
+          }
+
+          /* footer styling for all resolutions */
+
+          .siteinfo {
+           text-align: center;
+           padding: 3em 0;
+           border-top: 1px solid #ddd;
+          }
+          .siteinfo a {
+           text-decoration: none;
+           color: #999;
+           font-size: 0.8em;
+          }
+          .siteinfo a:hover {
+           color: #602F8D;
+           text-decoration: underline;
+          }
+
+          /* Small devices (tablets, 768px and up) 
+
+          Greater than 768 px, push logo left and tagline right. Alter 
+          tagline font size, alignment, and padding for larger dimensions.
+
+          */
+          @media (min-width: 768px) {  
+          .logo {
+          text-align: left;
+          }
+          .tagline {
+          font-size: 2em;
+          text-align: right;
+          padding-top: 1.6em;
+          }
+          }
+
+}
+
+
+
