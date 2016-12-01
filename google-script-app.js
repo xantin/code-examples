@@ -7,29 +7,38 @@ Before running you need to enable Drive API integration via: Resources -> Advanc
 another option to write API calling: https://developers.google.com/drive/v2/reference/files/delete
 docs: https://developers.google.com/apps-script/reference/drive/file
 https://script.google.com
+inspiration: http://stackoverflow.com/questions/19614583/google-apps-script-to-delete-all-files-from-google-drive
 */
 function main(){
+  function getFiles(){
+    var continuationToken = UserProperties.getProperty('DELETE_ALL_FILES_CONTINUATION_TOKEN');
+    Logger.log('continuationToken: '+continuationToken);
+    if (continuationToken == null) {
+      // firt time execution, get all files from drive
+      var files = DriveApp.getFiles();
+      // get the token and store it in a user property
+      var continuationToken = files.getContinuationToken();
+      UserProperties.setProperty('DELETE_ALL_FILES_CONTINUATION_TOKEN', continuationToken);
+    } else {
+      // we continue to execute (and move everything to trash)
+      var files = DriveApp.continueFileIterator(continuationToken);
+    }
+    return files;
+  }
   function findFilesByRegex(regEx, fileCallback) {
-    var files = DriveApp.getFiles();
-    var filesCount=0;
+    var files = getFiles();
     while (files.hasNext()) {
       var file = files.next();
       var filename=file.getName();
       if(filename.match(regExp)){
         fileCallback(file);
-        filesCount++;
       }
     }
-    Logger.log(filesCount);
+    UserProperties.deleteProperty('DELETE_ALL_FILES_CONTINUATION_TOKEN');
   }
   var regExp = new RegExp('^[0-9a-z]{40}$');// this is what we delete! care... though
   findFilesByRegex(regExp, function(file){
     Logger.log(file.getName() + 'Removed');
-    /*
-    Removes the given file from the root of the user's Drive. This method does not delete the file, 
-    but if a file is removed from all of its parents, it cannot be seen in Drive except by searching for it or using the "All items" view.
-    */
-    //DriveApp.removeFile(file);
     Drive.Files.remove(file.getId());
   });
 }
