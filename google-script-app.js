@@ -4,6 +4,7 @@ Delete files
 
 Before running you need to enable Drive API integration via: Resources -> Advanced Google Services -> Drive API (switch on)
 
+ quotas: https://developers.google.com/apps-script/guides/services/quotas
 another option to write API calling: https://developers.google.com/drive/v2/reference/files/delete
 docs: https://developers.google.com/apps-script/reference/drive/file
 https://script.google.com
