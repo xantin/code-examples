@@ -9,6 +9,7 @@
   "author": "Davdi Dutkovsky",
   "license": "ISC",
   "dependencies": {
+    "async": "2.1.4",
     "google-auth-library": "0.9.10",
     "googleapis": "14.2.0"
   }

@@ -3,18 +3,22 @@
  * https://developers.google.com/drive/v3/reference/files/list
  */
 var fs = require('fs');
-
+var async=require('async');
 
 var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
+var service = google.drive('v3');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/drive-nodejs-quickstart.json
-var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+var SCOPES = ['https://www.googleapis.com/auth/drive'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'drive-nodejs-quickstart.json';
+
+var totalFilesCount=0;
+const regex=new RegExp('^[0-9a-z]{40}$');
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -107,28 +111,56 @@ function storeToken(token) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function listFiles(auth) {
-    var service = google.drive('v3');
-    service.files.list({
+    let foundFiles=[];
+    readFiles(foundFiles, auth);
+}
+function deleteFiles(auth, array){
+    array.map(function(file){
+        service.files.delete({ auth: auth, fileId: file.id},function(err, response){
+            if(err){
+                console.error(err);
+            }else{
+                console.log('');
+            }
+        })
+    });
+}
+function readFiles(foundFiles, auth, pageToken){
+    var options={
         auth: auth,
         pageSize: 1000,
         fields: "nextPageToken, files(id, name)"
-    }, function(err, response) {
+    };
+    if (pageToken){
+        options.pageToken=pageToken;
+    };
+    service.files.list(options, function(err, response) {
         if (err) {
             console.log('The API returned an error: ' + err);
             return;
         }
-        var files = response.files;
-        console.log(Object.keys(response));
-        console.log(response.nextPageToken);
-        if (files.length == 0) {
-            console.log('No files found.');
-        } else {
-            console.log(files.length);
-            // console.log('Files:');
-            // for (var i = 0; i < files.length; i++) {
-            //     var file = files[i];
-            //     console.log('%s (%s)', file.name, file.id);
-            // }
+        let files = response.files;
+        totalFilesCount+=files.length;
+        let filteredFiles=files.filter(function(object){
+            return object.name.match(regex);
+        });
+        foundFiles=foundFiles.concat(filteredFiles);
+        if(response.nextPageToken){
+            readFiles(foundFiles, auth, response.nextPageToken);
+        } else{
+            var rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+            rl.question(`Total files ${totalFilesCount}, do you want delete ${foundFiles.length} files?`, function(code) {
+                rl.close();
+                if(code === 'yes'){
+                    console.log(`delete these files...`);
+                    deleteFiles(auth, foundFiles);
+                }else{
+                    console.log(`nothing was deleted`);
+                }
+            });
         }
     });
 }
