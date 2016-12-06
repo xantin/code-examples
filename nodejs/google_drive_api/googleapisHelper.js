@@ -1,6 +1,7 @@
 /**
  * Tutorial here https://developers.google.com/drive/v3/web/quickstart/nodejs
  * https://developers.google.com/drive/v3/reference/files/list
+ * https://github.com/google/google-api-nodejs-client/blob/master/apis/drive/v3.js
  */
 var fs = require('fs');
 var async=require('async');
@@ -8,7 +9,7 @@ var async=require('async');
 var readline = require('readline');
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
-var service = google.drive('v3');
+
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/drive-nodejs-quickstart.json
@@ -17,19 +18,6 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'drive-nodejs-quickstart.json';
 
-var totalFilesCount=0;
-const regex=new RegExp('^[0-9a-z]{40}$');
-
-// Load client secrets from a local file.
-fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-    if (err) {
-        console.log('Error loading client secret file: ' + err);
-        return;
-    }
-    // Authorize a client with the loaded credentials, then call the
-    // Drive API.
-    authorize(JSON.parse(content), listFiles);
-});
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -106,61 +94,18 @@ function storeToken(token) {
 }
 
 /**
- * Lists the names and IDs of up to 10 files.
  *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+ * @param Function callback - first parameter is auth variable
  */
-function listFiles(auth) {
-    let foundFiles=[];
-    readFiles(foundFiles, auth);
-}
-function deleteFiles(auth, array){
-    array.map(function(file){
-        service.files.delete({ auth: auth, fileId: file.id},function(err, response){
-            if(err){
-                console.error(err);
-            }else{
-                console.log('');
-            }
-        })
-    });
-}
-function readFiles(foundFiles, auth, pageToken){
-    var options={
-        auth: auth,
-        pageSize: 1000,
-        fields: "nextPageToken, files(id, name)"
-    };
-    if (pageToken){
-        options.pageToken=pageToken;
-    };
-    service.files.list(options, function(err, response) {
+module.exports.auth = function (callback) {
+    // Load client secrets from a local file.
+    fs.readFile('client_secret.json', function processClientSecrets(err, content) {
         if (err) {
-            console.log('The API returned an error: ' + err);
+            console.log('Error loading client secret file: ' + err);
             return;
         }
-        let files = response.files;
-        totalFilesCount+=files.length;
-        let filteredFiles=files.filter(function(object){
-            return object.name.match(regex);
-        });
-        foundFiles=foundFiles.concat(filteredFiles);
-        if(response.nextPageToken){
-            readFiles(foundFiles, auth, response.nextPageToken);
-        } else{
-            var rl = readline.createInterface({
-                input: process.stdin,
-                output: process.stdout
-            });
-            rl.question(`Total files ${totalFilesCount}, do you want delete ${foundFiles.length} files?`, function(code) {
-                rl.close();
-                if(code === 'yes'){
-                    console.log(`delete these files...`);
-                    deleteFiles(auth, foundFiles);
-                }else{
-                    console.log(`nothing was deleted`);
-                }
-            });
-        }
+        // Authorize a client with the loaded credentials, then call the
+        // Drive API.
+        authorize(JSON.parse(content), callback);
     });
-}
+};

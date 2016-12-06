@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "save-files": "node --harmony saveSuspicesFiles.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.2.0"
   },
   "author": "Davdi Dutkovsky",
   "license": "ISC",
   "dependencies": {
     "async": "2.1.4",
+    "csv-write-stream": "2.0.0",
     "google-auth-library": "0.9.10",
     "googleapis": "14.2.0"
   }
