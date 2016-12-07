@@ -1,0 +1,19 @@
+body, html { 
+    margin: 0px; 
+    padding: 0px; 
+} 
+      
+
+#canvas {
+	display: block;
+	margin:auto;
+	margin-top: 5px;
+
+	/*background:url("../image/bg.jpg");
+	z-index: -1;*/
+}
+
+/*#food{
+	z-index: 0;
+	visibility: hidden;
+}*/

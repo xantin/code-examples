@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script>
+    //var images=['http://sendinspire.com/testing/1.png', 'http://sendinspire.com/testing/2.png'];
+
+
+    var age = 30;
+    if(age>25){
+      var index=2;
+    } else if (age > 25 && age < 45){
+      var index=1;
+    }
+    var url='http://sendinspire.com/testing/'+index+'.png';
+    $( document ).ready(function() {
+      $('body').append('<img src="'+url+'">');
+    });
+  </script>
+</head>
+<body>
+
+</body>
+</html>
