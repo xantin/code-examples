@@ -18,6 +18,7 @@
     "change": "0.0.0",
     "csv-write-stream": "2.0.0",
     "google-auth-library": "0.9.10",
+    "google-drive-batch-requests": "0.0.4",
     "googleapis": "14.2.0"
   }
 }

@@ -19,3 +19,4 @@ googleapisHelper.auth((auth)=>{
         });
     });
 });
+// https://www.npmjs.com/package/google-drive-batch-requests
