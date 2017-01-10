@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" id="input">
+    <table id="table">
+      <tbody>
+        <tr>
+          <td>alex</td>
+          <td>cc</td>
+        </tr>
+        <tr>
+          <td>alop</td>
+        </tr>
+        <tr>
+          <td>cdf</td>
+        </tr>
+        <tr>
+          <td>coko</td>
+          <td>alex</td>
+        </tr>
+        <tr>
+          <td>cokoss</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+$(document).ready(function(){
+
+  $(document).on('keyup', '#input', function(e){
+    var value=$(this).val();
+    $('#table tr:has(td:contains("'+value+'"))').show();
+    $('#table tr:has(td:not(:contains("'+value+'")))').hide();
+
+  });
+});
+    </script>
+</body>
+</html>
